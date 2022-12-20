@@ -39,7 +39,7 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password, places } = req.body;
+  const { name, email, password } = req.body;
 
   let existingUser;
   try {
@@ -62,7 +62,7 @@ const signup = async (req, res, next) => {
     email,
     password,
     image: "https://images.app.goo.gl/xm62mJoYdCTXZuFr8",
-    places,
+    places: [],
   });
   try {
     await createdUser.save();
