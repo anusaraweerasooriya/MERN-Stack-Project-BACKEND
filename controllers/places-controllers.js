@@ -1,3 +1,4 @@
+const fs = require("fs");
 const uuid = require("uuid").v4;
 const { validationResult } = require("express-validator");
 
@@ -71,7 +72,7 @@ const createPlace = async (req, res, next) => {
 
   if (!errors.isEmpty()) {
     console.log(errors);
-    return next(HttpError("Invalid inputs, please check your data", 422));
+    return next(new HttpError("Invalid inputs, please check your data", 422));
   }
 
   const { title, description, address, creator } = req.body;
@@ -88,7 +89,7 @@ const createPlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image: "https://images.app.goo.gl/dpKuRU5g9FTui6vd6",
+    image: req.file.path,
     creator,
   });
 
@@ -179,6 +180,8 @@ const deletePlace = async (req, res, next) => {
     return next(error);
   }
 
+  const imagePath = place.image;
+
   // let user;
   // try {
   //   user = User.findById(place.creator);
@@ -201,6 +204,10 @@ const deletePlace = async (req, res, next) => {
     );
     return next(error);
   }
+
+  fs.unlink(imagePath, (err) => {
+    console.log(err);
+  });
 
   res.status(200).json({ message: "Deleted place." });
 };

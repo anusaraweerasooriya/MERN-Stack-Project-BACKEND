@@ -51,7 +51,7 @@ const signup = async (req, res, next) => {
     name, // name: name
     email,
     password,
-    image: "https://images.app.goo.gl/xm62mJoYdCTXZuFr8",
+    image: req.file.path,
     places: [],
   });
   try {
