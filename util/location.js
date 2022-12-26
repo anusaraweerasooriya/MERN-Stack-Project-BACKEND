@@ -7,8 +7,8 @@ const getCoordsForAddress = async (address) => {
     const url = "https://api.mapbox.com/geocoding/v5";
     const endpoint = "mapbox.places";
     const searchText = encodeURIComponent(address);
-    const ACCESS_TOKEN =
-      "pk.eyJ1IjoiYW51c2FyYTciLCJhIjoiY2xiZGc0aDJwMDEwODNybWZhbnZjdGJpaiJ9.iSl7Weog5LpBvJpHnohsSg";
+    const ACCESS_TOKEN = process.env.MAP_BOX_API_KEY;
+    ("");
 
     const response = await axios({
       method: "GET",
