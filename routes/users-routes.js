@@ -6,7 +6,7 @@ const usersController = require("../controllers/users-controllers");
 const fileUpload = require("../middleware/file-upload");
 
 router.get("/", usersController.getUsers);
-
+let variable;
 router.post(
   "/signup",
   fileUpload.single("image"),
