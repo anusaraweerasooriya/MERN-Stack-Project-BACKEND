@@ -5,5 +5,5 @@
         "DB_NAME": "mern",
         "MAP_BOX_API_KEY": "pk.eyJ1IjoiYW51c2FyYTciLCJhIjoiY2xiZGc0aDJwMDEwODNybWZhbnZjdGJpaiJ9.iSl7Weog5LpBvJpHnohsSg",
         "JWT_KEY": "supersecret_dont_share"
-    }
+    }       
 }
